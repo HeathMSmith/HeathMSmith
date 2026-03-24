@@ -1,3 +1,5 @@
+![Banner](./assets/banner.png)
+
 # 👋 Hi, I'm Heath
 
 I'm a cloud-focused infrastructure engineer specializing in AWS and Terraform, with a focus on building secure, scalable, and cost-efficient systems.
