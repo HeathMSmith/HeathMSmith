@@ -56,7 +56,7 @@ Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, r
 
 ## 🔗 Explore the Project
 
-👉 https://github.com/HeathMSmith/Terraform-Master-HMS/tree/main/examples/production-webapp
+👉 https://github.com/HeathMSmith/terraform-aws-modules-hms
 
 Includes:
 - Terraform modules and example implementation
