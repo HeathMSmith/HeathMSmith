@@ -29,7 +29,7 @@ Designed a fully private architecture without a NAT Gateway by using VPC endpoin
 * CPU-based auto scaling
 * SSM connectivity in a private VPC
 
-🔗 [View Project](https://github.com/HeathMSmith/Terraform-Master-HMS/tree/main/examples/production-webapp)
+🔗 [View Project](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
 
 ---
 
