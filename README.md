@@ -2,9 +2,9 @@
 
 # 👋 Hi, I'm Heath
 
-I'm a cloud-focused infrastructure engineer specializing in AWS and Terraform, with a focus on building secure, scalable, and cost-efficient systems.
+I design production-grade AWS infrastructure using Terraform, with a focus on private networking, security, and cost-efficient architecture.
 
-Recently, I’ve been focused on designing production-style AWS environments that emphasize private networking, automation, and real-world validation.
+Most of my work avoids common shortcuts (like public subnets and NAT Gateways) and instead emphasizes real-world, enterprise-aligned patterns.
 
 ---
 
@@ -12,36 +12,59 @@ Recently, I’ve been focused on designing production-style AWS environments tha
 
 ### 🧱 Production Web Application (AWS + Terraform)
 
-A production-style architecture built with:
+A production-style AWS architecture built to simulate real-world infrastructure patterns:
 
-* Application Load Balancer + Auto Scaling Group
-* Private EC2 instances (no public IPs)
-* AWS Systems Manager (SSM) for access (no SSH)
-* VPC Interface Endpoints (no NAT Gateway)
-* HTTPS via ACM + Route53
+- Application Load Balancer + Auto Scaling Group
+- Private EC2 instances (no public IPs)
+- AWS Systems Manager (SSM) for secure access (no SSH)
+- VPC Interface Endpoints (no NAT Gateway required)
+- HTTPS via ACM + Route 53
 
-👉 **Key Highlight:**
-Designed a fully private architecture without a NAT Gateway by using VPC endpoints and private DNS.
+👉 **Key Architectural Decision:**
+Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, reducing cost while maintaining full private connectivity.
 
-👉 **What I validated:**
-
-* Load balancing across instances
-* CPU-based auto scaling
-* SSM connectivity in a private VPC
-
-🔗 [View Project](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
+[View Example](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
 
 ---
 
-## 🧠 What I Focus On
+## 📊 What This Project Validates
 
-* AWS architecture (VPC, ALB, ASG, IAM)
-* Infrastructure as Code (Terraform)
-* Secure cloud design (private subnets, least privilege)
-* Cost optimization (removing unnecessary components like NAT)
+- Load balancing across multiple instances
+- CPU-based auto scaling behavior
+- Secure instance access via SSM in a private VPC
+- End-to-end HTTPS configuration with ACM + Route 53
+- Fully private architecture with zero public compute exposure
 
 ---
 
-## 📫 Let's Connect
+## 🧠 Core Focus Areas
 
-* LinkedIn: https://www.linkedin.com/in/heath-m-smith/
+- Designing private, production-grade AWS VPC architectures
+- Infrastructure as Code using Terraform (modular and reusable)
+- Secure access patterns (SSM, no SSH, least privilege IAM)
+- Cost-efficient architecture (eliminating unnecessary managed services)
+
+---
+
+## 📁 Repository Structure
+
+- `modules/` → reusable Terraform modules  
+- `examples/` → real-world implementations  
+- `environments/` → (planned expansion for multi-env deployments)
+
+---
+
+## 🔗 Explore the Project
+
+👉 https://github.com/HeathMSmith/Terraform-Master-HMS/tree/main/examples/production-webapp
+
+Includes:
+- Terraform modules and example implementation
+- Production-style architecture patterns
+- Validation of scaling, networking, and secure access
+
+---
+
+## 📫 Connect
+
+- LinkedIn: https://www.linkedin.com/in/heath-m-smith/
