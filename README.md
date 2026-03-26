@@ -1,6 +1,6 @@
 ![Banner](./assets/banner.png)
 
-# 👋 Hi, I'm Heath
+# Hi, I'm Heath
 
 I design production-grade AWS infrastructure using Terraform, with a focus on private networking, security, and cost-efficient architecture.
 
@@ -8,9 +8,9 @@ Most of my work avoids common shortcuts (like public subnets and NAT Gateways) a
 
 ---
 
-## 🚀 Featured Project
+## Featured Project
 
-### 🧱 Production Web Application (AWS + Terraform)
+### Production Web Application (AWS + Terraform)
 
 A production-style AWS architecture built to simulate real-world infrastructure patterns:
 
@@ -20,14 +20,14 @@ A production-style AWS architecture built to simulate real-world infrastructure 
 - VPC Interface Endpoints (no NAT Gateway required)
 - HTTPS via ACM + Route 53
 
-👉 **Key Architectural Decision:**
+ **Key Architectural Decision:**
 Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, reducing cost while maintaining full private connectivity.
 
 [View Example](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
 
 ---
 
-## 📊 What This Project Validates
+##  What This Project Validates
 
 - Load balancing across multiple instances
 - CPU-based auto scaling behavior
@@ -37,7 +37,7 @@ Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, r
 
 ---
 
-## 🧠 Core Focus Areas
+##  Core Focus Areas
 
 - Designing private, production-grade AWS VPC architectures
 - Infrastructure as Code using Terraform (modular and reusable)
@@ -46,7 +46,7 @@ Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, r
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 - `modules/` → reusable Terraform modules  
 - `examples/` → real-world implementations  
@@ -54,9 +54,9 @@ Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, r
 
 ---
 
-## 🔗 Explore the Project
+##  Explore the Project
 
-👉 https://github.com/HeathMSmith/terraform-aws-modules-hms
+ https://github.com/HeathMSmith/terraform-aws-modules-hms
 
 Includes:
 - Terraform modules and example implementation
@@ -65,6 +65,6 @@ Includes:
 
 ---
 
-## 📫 Connect
+##  Connect
 
 - LinkedIn: https://www.linkedin.com/in/heath-m-smith/
