@@ -54,7 +54,7 @@ Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, r
 
 ---
 
-##  Explore the Project
+##  Explore the Featured Repo
 
  https://github.com/HeathMSmith/terraform-aws-modules-hms
 
