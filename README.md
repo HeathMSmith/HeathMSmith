@@ -2,69 +2,129 @@
 
 # Hi, I'm Heath
 
-I design production-grade AWS infrastructure using Terraform, with a focus on private networking, security, and cost-efficient architecture.
+I design production-grade AWS infrastructure using Terraform, with a
+focus on private networking, immutable infrastructure, and
+cost-optimized architectures.
 
-Most of my work avoids common shortcuts (like public subnets and NAT Gateways) and instead emphasizes real-world, enterprise-aligned patterns.
+My work emphasizes real-world patterns including CI/CD pipelines,
+NAT-less VPC design, and secure, fully private compute using AWS Systems
+Manager.
 
----
+------------------------------------------------------------------------
 
-## Featured Project
+Representative projects demonstrating application delivery and
+infrastructure design on AWS.
+
+------------------------------------------------------------------------
+
+## Featured Projects
+
+------------------------------------------------------------------------
 
 ### Production Web Application (AWS + Terraform)
 
-A production-style AWS architecture built to simulate real-world infrastructure patterns:
+A production-style application delivery stack focused on exposing a
+secure, highly available service to end users.
 
-- Application Load Balancer + Auto Scaling Group
-- Private EC2 instances (no public IPs)
-- AWS Systems Manager (SSM) for secure access (no SSH)
-- VPC Interface Endpoints (no NAT Gateway required)
-- HTTPS via ACM + Route 53
+**Focus Areas:** - Application Load Balancer with HTTPS (ACM + Route
+53) - Auto Scaling Group handling dynamic traffic - Private EC2
+instances with no public IPs - Secure access via AWS Systems Manager
+(SSM, no SSH) - End-to-end request flow from internet to application
+layer
 
- **Key Architectural Decision:**
-Eliminated NAT Gateway dependency by leveraging VPC Endpoints and private DNS, reducing cost while maintaining full private connectivity.
+**Key Architectural Decision:**\
+Eliminated NAT Gateway dependency by leveraging VPC Endpoints and
+private DNS, reducing cost while maintaining secure private
+connectivity.
 
-[View Example](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
+**What This Demonstrates:** - Delivering a publicly accessible
+application using private compute - Load balancing and traffic
+distribution - Secure ingress and TLS termination - Real-world
+application access patterns
 
----
+[View
+Example](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
 
-##  What This Project Validates
+------------------------------------------------------------------------
 
-- Load balancing across multiple instances
-- CPU-based auto scaling behavior
-- Secure instance access via SSM in a private VPC
-- End-to-end HTTPS configuration with ACM + Route 53
-- Fully private architecture with zero public compute exposure
+### 3-Tier AWS Infrastructure (HA, CI/CD, Immutable Design)
 
----
+An infrastructure-focused project modeling how production AWS
+environments are designed, deployed, and operated.
 
-##  Core Focus Areas
+**Focus Areas:** - Multi-AZ VPC design with 9 subnet segmentation
+(public, application, database) - Infrastructure deployment via CI/CD
+(GitHub Actions + OIDC) - Immutable compute layer using custom AMIs (no
+runtime package installation) - NAT-less architecture using VPC
+Interface Endpoints for private connectivity - Full lifecycle management
+including controlled apply and destroy workflows
 
-- Designing private, production-grade AWS VPC architectures
-- Infrastructure as Code using Terraform (modular and reusable)
-- Secure access patterns (SSM, no SSH, least privilege IAM)
-- Cost-efficient architecture (eliminating unnecessary managed services)
+**Key Architectural Decisions:** - Shifted from user_data provisioning
+to AMI-based immutable infrastructure for deterministic deployments\
+- Eliminated outbound internet dependency from private subnets\
+- Designed infrastructure to support safe teardown and redeployment
+cycles
 
----
+**What This Demonstrates:** - Designing secure, segmented network
+architectures\
+- Building reproducible infrastructure using Terraform modules and
+environments\
+- Operating infrastructure through CI/CD pipelines\
+- Debugging real AWS dependency and lifecycle issues
 
-##  Repository Structure
+------------------------------------------------------------------------
 
-- `modules/` → reusable Terraform modules  
-- `examples/` → real-world implementations  
-- `environments/` → (planned expansion for multi-env deployments)
+## Infrastructure Maturity Signals
 
----
+-   Remote state management (S3 + DynamoDB locking)\
+-   CI/CD pipelines with OIDC authentication (no long-lived
+    credentials)\
+-   Controlled deployment and teardown workflows\
+-   Immutable infrastructure using custom AMIs\
+-   Debugged real AWS dependency and teardown issues\
+-   Cost optimization through NAT elimination and endpoint usage
 
-##  Explore the Featured Repo
+------------------------------------------------------------------------
 
- https://github.com/HeathMSmith/terraform-aws-modules-hms
+## Core Focus Areas
 
-Includes:
-- Terraform modules and example implementation
-- Production-style architecture patterns
-- Validation of scaling, networking, and secure access
+-   Designing secure, private AWS architectures (no public compute)\
+-   Infrastructure as Code with Terraform (modular, multi-environment
+    design)\
+-   CI/CD for infrastructure (GitHub Actions + OIDC)\
+-   Immutable infrastructure patterns (AMI-based deployments)\
+-   Cost optimization through architectural decisions
 
----
+------------------------------------------------------------------------
 
-##  Connect
+## Repository Structure
 
-- LinkedIn: https://www.linkedin.com/in/heath-m-smith/
+-   modules/ → reusable Terraform modules\
+-   examples/ → real-world implementations\
+-   environments/ → multi-environment deployments
+
+------------------------------------------------------------------------
+
+## Real-World Debugging Experience
+
+-   Resolved Terraform state lock conflicts using DynamoDB locking
+    mechanisms\
+-   Diagnosed AWS dependency violations during VPC teardown (ENIs, SGs,
+    IGW)\
+-   Handled Secrets Manager recovery window conflicts during
+    redeployment\
+-   Managed drift between Terraform-managed and manually created
+    resources
+
+------------------------------------------------------------------------
+
+## Explore the Repository
+
+[View
+Repository](https://github.com/HeathMSmith/terraform-aws-modules-hms)
+
+------------------------------------------------------------------------
+
+## Connect
+
+LinkedIn: https://www.linkedin.com/in/heath-m-smith/
