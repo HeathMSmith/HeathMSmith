@@ -1,130 +1,133 @@
-![Banner](./assets/banner.png)
+![Heath Smith GitHub Profile Banner](./assets/banner.png)
 
 # Hi, I'm Heath
 
-I design production-grade AWS infrastructure using Terraform, with a
-focus on private networking, immutable infrastructure, and
-cost-optimized architectures.
+I build AWS cloud architectures with Terraform, with an emphasis on secure infrastructure, event-driven systems, serverless application design, automation, and operationally safe delivery through GitHub Actions and AWS OIDC.
 
-My work emphasizes real-world patterns including CI/CD pipelines,
-NAT-less VPC design, and secure, fully private compute using AWS Systems
-Manager.
+My background includes private-cloud infrastructure, platform engineering, automation, and quality engineering. I use that experience to design AWS projects that demonstrate not only how infrastructure is provisioned, but also how it is secured, observed, deployed, and torn down.
 
-------------------------------------------------------------------------
+[Portfolio](https://www.hmsdev.click/) · [LinkedIn](https://www.linkedin.com/in/heath-m-smith/) · [GitHub](https://github.com/HeathMSmith)
 
-Representative projects demonstrating application delivery and
-infrastructure design on AWS.
+---
 
-------------------------------------------------------------------------
+## Featured AWS Projects
 
-## Featured Projects
+### Three-Tier AWS Architecture
 
-------------------------------------------------------------------------
+A multi-AZ AWS infrastructure project built with Terraform across three Availability Zones, with highly available network and application tiers. The architecture uses an internet-facing Application Load Balancer, private Auto Scaling compute, segmented application and database tiers, RDS, AWS Systems Manager, VPC endpoints, Secrets Manager, and controlled GitHub Actions workflows.
 
-### Production Web Application (AWS + Terraform)
+The design intentionally removes NAT Gateway dependency from the private application tier by using AWS service endpoints where appropriate, reducing recurring network cost while keeping compute private.
 
-A production-style application delivery stack focused on exposing a
-secure, highly available service to end users.
+**Demonstrates:** VPC design · ALB · Auto Scaling · EC2 · RDS · SSM · VPC endpoints · Secrets Manager · Terraform · GitHub Actions · OIDC
 
-**Focus Areas:** - Application Load Balancer with HTTPS (ACM + Route
-53) - Auto Scaling Group handling dynamic traffic - Private EC2
-instances with no public IPs - Secure access via AWS Systems Manager
-(SSM, no SSH) - End-to-end request flow from internet to application
-layer
+[View Repository](https://github.com/HeathMSmith/terraform-aws-3tier-vpc-ha)
 
-**Key Architectural Decision:**\
-Eliminated NAT Gateway dependency by leveraging VPC Endpoints and
-private DNS, reducing cost while maintaining secure private
-connectivity.
+---
 
-**What This Demonstrates:** - Delivering a publicly accessible
-application using private compute - Load balancing and traffic
-distribution - Secure ingress and TLS termination - Real-world
-application access patterns
+### AI Serverless Application
 
-[View
-Example](https://github.com/HeathMSmith/terraform-aws-modules-hms/tree/main/examples/production-webapp)
+A serverless AI application that combines Amazon CloudFront, API Gateway, AWS Lambda, Amazon Bedrock, and DynamoDB. The application is managed with Terraform and deployed through GitHub Actions using AWS OIDC rather than long-lived deployment credentials.
 
-------------------------------------------------------------------------
+The project demonstrates how managed AWS services can be combined into a secure, low-operations application architecture while still maintaining infrastructure lifecycle controls and separate DEV and PROD environments.
 
-### 3-Tier AWS Infrastructure (HA, CI/CD, Immutable Design)
+**Demonstrates:** Bedrock · API Gateway · Lambda · DynamoDB · CloudFront · S3 · KMS · Terraform · GitHub Actions · OIDC
 
-An infrastructure-focused project modeling how production AWS
-environments are designed, deployed, and operated.
+[View Repository](https://github.com/HeathMSmith/aws-ai-serverless-app)
 
-**Focus Areas:** - Multi-AZ VPC design with 9 subnet segmentation
-(public, application, database) - Infrastructure deployment via CI/CD
-(GitHub Actions + OIDC) - Immutable compute layer using custom AMIs (no
-runtime package installation) - NAT-less architecture using VPC
-Interface Endpoints for private connectivity - Full lifecycle management
-including controlled apply and destroy workflows
+---
 
-**Key Architectural Decisions:** - Shifted from user_data provisioning
-to AMI-based immutable infrastructure for deterministic deployments\
-- Eliminated outbound internet dependency from private subnets\
-- Designed infrastructure to support safe teardown and redeployment
-cycles
+### Event-Driven Serverless Image Pipeline
 
-**What This Demonstrates:** - Designing secure, segmented network
-architectures\
-- Building reproducible infrastructure using Terraform modules and
-environments\
-- Operating infrastructure through CI/CD pipelines\
-- Debugging real AWS dependency and lifecycle issues
+An event-driven image-processing pipeline built with Amazon S3, AWS Lambda, Python, and Pillow. Image uploads trigger asynchronous processing that generates optimized 256px and 1024px JPEG derivatives in a separate processed-images bucket.
 
-------------------------------------------------------------------------
+The project includes SQS dead-letter queue isolation and replay, CloudWatch logs and alarms, deterministic Pillow Lambda Layer builds, Terraform-managed infrastructure, and controlled deployment and teardown workflows.
 
-## Infrastructure Maturity Signals
+**Demonstrates:** S3 events · Lambda · Python 3.12 · Pillow · SQS DLQ · CloudWatch · IAM · Terraform · GitHub Actions · OIDC
 
--   Remote state management (S3 + DynamoDB locking)\
--   CI/CD pipelines with OIDC authentication (no long-lived
-    credentials)\
--   Controlled deployment and teardown workflows\
--   Immutable infrastructure using custom AMIs\
--   Debugged real AWS dependency and teardown issues\
--   Cost optimization through NAT elimination and endpoint usage
+[View Repository](https://github.com/HeathMSmith/aws-serverless-image-pipeline)
 
-------------------------------------------------------------------------
+---
 
-## Core Focus Areas
+### Static Website Platform
 
--   Designing secure, private AWS architectures (no public compute)\
--   Infrastructure as Code with Terraform (modular, multi-environment
-    design)\
--   CI/CD for infrastructure (GitHub Actions + OIDC)\
--   Immutable infrastructure patterns (AMI-based deployments)\
--   Cost optimization through architectural decisions
+A production static website platform using private Amazon S3 storage behind CloudFront with Origin Access Control, Route 53 DNS, ACM-managed TLS, and Terraform-managed infrastructure.
 
-------------------------------------------------------------------------
+The project demonstrates secure edge delivery, custom-domain routing, HTTPS, remote state, separate environments, and controlled infrastructure deployment through GitHub Actions.
 
-## Repository Structure
+**Demonstrates:** CloudFront · S3 · OAC · Route 53 · ACM · Terraform · GitHub Actions · OIDC
 
--   modules/ → reusable Terraform modules\
--   examples/ → real-world implementations\
--   environments/ → multi-environment deployments
+[View Repository](https://github.com/HeathMSmith/aws-static-site-terraform) · [Live Site](https://www.hmsdev.click/)
 
-------------------------------------------------------------------------
+---
 
-## Real-World Debugging Experience
+## Engineering Approach
 
--   Resolved Terraform state lock conflicts using DynamoDB locking
-    mechanisms\
--   Diagnosed AWS dependency violations during VPC teardown (ENIs, SGs,
-    IGW)\
--   Handled Secrets Manager recovery window conflicts during
-    redeployment\
--   Managed drift between Terraform-managed and manually created
-    resources
+Across the portfolio, I use a consistent infrastructure and delivery model where it fits the architecture:
 
-------------------------------------------------------------------------
+- Terraform-managed AWS infrastructure
+- separate DEV and PROD environment roots
+- encrypted remote state in Amazon S3
+- native S3 state locking
+- version-constrained Terraform providers
+- GitHub Actions for infrastructure lifecycle workflows
+- AWS OIDC authentication with short-lived credentials
+- pull-request Terraform planning
+- controlled apply workflows
+- reviewed destroy workflows
+- private-by-default compute and storage where appropriate
+- CloudWatch-based observability
+- cost-aware architecture decisions
+- explicit failure handling and recovery paths
 
-## Explore the Repository
+The goal is not to make every project identical. Each architecture keeps the AWS services and operational patterns that best fit its workload while following a common engineering standard for infrastructure management and delivery.
 
-[View
-Repository](https://github.com/HeathMSmith/terraform-aws-modules-hms)
+---
 
-------------------------------------------------------------------------
+## Core Technologies
+
+**Cloud & Infrastructure**
+
+AWS · Terraform · VPC · EC2 · Auto Scaling · ALB · RDS · S3 · CloudFront · Route 53 · ACM
+
+**Serverless & Application Services**
+
+Lambda · API Gateway · DynamoDB · Amazon Bedrock · SQS · CloudWatch · KMS · Secrets Manager
+
+**Automation & Delivery**
+
+GitHub Actions · AWS OIDC · Terraform remote state · native S3 locking · Bash · Python
+
+**Infrastructure Practices**
+
+Infrastructure as Code · private networking · multi-environment design · event-driven architecture · observability · failure recovery · controlled deployment and teardown
+
+---
+
+## What the Portfolio Demonstrates
+
+The projects are intentionally different in scope:
+
+- **Three-Tier AWS Architecture** focuses on networking, private compute, high availability, and infrastructure lifecycle management.
+- **AI Serverless Application** focuses on managed application services and generative AI integration.
+- **Serverless Image Pipeline** focuses on event-driven processing, asynchronous failure handling, and observability.
+- **Static Website Platform** focuses on secure global content delivery, DNS, TLS, and edge architecture.
+
+Together, they demonstrate the ability to design and operate multiple AWS architecture patterns rather than a single repeated Terraform template.
+
+---
+
+## Background
+
+I bring experience from private-cloud infrastructure, VMware-based environments, platform engineering, automation, and quality engineering into my AWS work.
+
+That background shapes how I approach cloud architecture: understand dependencies, automate repeatable operations, reduce unnecessary access, design for failure, make infrastructure observable, and keep deployment and teardown procedures deliberate.
+
+I am currently focused on cloud engineering, AWS architecture, Infrastructure as Code, and DevOps-oriented roles where that combination of infrastructure and automation experience is useful.
+
+---
 
 ## Connect
 
-LinkedIn: https://www.linkedin.com/in/heath-m-smith/
+- [Portfolio](https://www.hmsdev.click/)
+- [LinkedIn](https://www.linkedin.com/in/heath-m-smith/)
+- [GitHub](https://github.com/HeathMSmith)
