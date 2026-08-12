@@ -6,7 +6,7 @@ I build AWS cloud architectures with Terraform, with an emphasis on secure infra
 
 My background includes private-cloud infrastructure, platform engineering, automation, and quality engineering. I use that experience to design AWS projects that demonstrate not only how infrastructure is provisioned, but also how it is secured, observed, deployed, and torn down.
 
-[Portfolio](https://www.hmsdev.click/) · [LinkedIn](https://www.linkedin.com/in/heath-m-smith/) · [GitHub](https://github.com/HeathMSmith)
+[Portfolio](https://www.hmsdev.click/) · [LinkedIn](https://www.linkedin.com/in/heath-m-smith/)
 
 ---
 
@@ -130,4 +130,3 @@ I am currently focused on cloud engineering, AWS architecture, Infrastructure as
 
 - [Portfolio](https://www.hmsdev.click/)
 - [LinkedIn](https://www.linkedin.com/in/heath-m-smith/)
-- [GitHub](https://github.com/HeathMSmith)
