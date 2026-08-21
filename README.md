@@ -2,7 +2,7 @@
 
 # Hi, I'm Heath
 
-I build AWS cloud architectures with Terraform, with an emphasis on secure infrastructure, event-driven systems, serverless application design, automation, and operationally safe delivery through GitHub Actions and AWS OIDC.
+I build AWS cloud architectures with Terraform, with an emphasis on secure infrastructure, container platforms, serverless and event-driven systems, automation, and operationally safe delivery through GitHub Actions and AWS OIDC.
 
 My background includes private-cloud infrastructure, platform engineering, automation, and quality engineering. I use that experience to design AWS projects that demonstrate not only how infrastructure is provisioned, but also how it is secured, observed, deployed, and torn down.
 
@@ -11,6 +11,18 @@ My background includes private-cloud infrastructure, platform engineering, autom
 ---
 
 ## Featured AWS Projects
+
+### AWS Container Platform
+
+A reusable multi-service container platform built on Amazon ECS with AWS Fargate. Shared infrastructure includes private networking, VPC endpoints, an Application Load Balancer with HTTPS host-based routing, an ECS cluster, and platform-level observability, while each application service receives its own routing, DNS, task definition, IAM task role, autoscaling, logging, and service-level monitoring.
+
+The platform currently runs three independently deployable services, including an AWS Architecture Advisor built with FastAPI. Container images are stored in Amazon ECR and use immutable Git SHA provenance tags alongside immutable release tags, with infrastructure and deployment workflows managed through Terraform and GitHub Actions using AWS OIDC.
+
+**Demonstrates:** ECS · Fargate · ECR · Docker · ALB · VPC endpoints · Route 53 · IAM · Application Auto Scaling · CloudWatch · FastAPI · Terraform · GitHub Actions · OIDC
+
+[View Repository](https://github.com/HeathMSmith/aws-container-platform)
+
+---
 
 ### Three-Tier AWS Architecture
 
@@ -89,6 +101,10 @@ The goal is not to make every project identical. Each architecture keeps the AWS
 
 AWS · Terraform · VPC · EC2 · Auto Scaling · ALB · RDS · S3 · CloudFront · Route 53 · ACM
 
+**Containers & Application Platform**
+
+ECS · Fargate · ECR · Docker · FastAPI · Application Auto Scaling
+
 **Serverless & Application Services**
 
 Lambda · API Gateway · DynamoDB · Amazon Bedrock · SQS · CloudWatch · KMS · Secrets Manager
@@ -107,9 +123,14 @@ Infrastructure as Code · private networking · multi-environment design · even
 
 The projects are intentionally different in scope:
 
+- **AWS Container Platform** focuses on reusable container infrastructure, multi-service ECS/Fargate deployment, workload isolation, private networking, autoscaling, observability, and immutable container delivery.
+
 - **Three-Tier AWS Architecture** focuses on networking, private compute, high availability, and infrastructure lifecycle management.
+
 - **AI Serverless Application** focuses on managed application services and generative AI integration.
+
 - **Serverless Image Pipeline** focuses on event-driven processing, asynchronous failure handling, and observability.
+
 - **Static Website Platform** focuses on secure global content delivery, DNS, TLS, and edge architecture.
 
 Together, they demonstrate the ability to design and operate multiple AWS architecture patterns rather than a single repeated Terraform template.
